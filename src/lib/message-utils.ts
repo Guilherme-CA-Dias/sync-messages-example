@@ -17,6 +17,7 @@ export function getMessageSenderName(message: {
 
 /**
  * Determines if a message should show the sender name based on grouping logic
+ * Only shows names for incoming messages, not outgoing ones
  * @param messages - Array of all messages
  * @param currentIndex - Index of the current message
  * @returns True if the sender name should be displayed
@@ -28,9 +29,15 @@ export function shouldShowSenderName(
 	}>,
 	currentIndex: number
 ): boolean {
+	const currentMessage = messages[currentIndex];
+
+	// Only show names for incoming messages
+	if (currentMessage.direction !== "incoming") {
+		return false;
+	}
+
 	if (currentIndex === 0) return true; // Always show for the first message
 
-	const currentMessage = messages[currentIndex];
 	const previousMessage = messages[currentIndex - 1];
 
 	if (!previousMessage) return true; // Should not happen if index > 0

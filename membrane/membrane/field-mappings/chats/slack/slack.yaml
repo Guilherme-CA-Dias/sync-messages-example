@@ -1,0 +1,41 @@
+key: chats
+state: READY
+errors: []
+isDeactivated: false
+id: 688144d99a588ae9206814c1
+name: Chats
+customized: true
+universalFieldMappingId: 688144d433816c4cd08e963e
+integrationId: 6881440ff2eacefeb83c3adf
+dataSourceKey: chats
+direction: both
+importValue:
+  id:
+    $var: $.id
+  platform: Slack
+  name:
+    $var: $.name
+integration:
+  key: slack
+  state: READY
+  errors: []
+  isDeactivated: false
+  id: 6881440ff2eacefeb83c3adf
+  name: Slack
+  uuid: dfa66b83-509e-44bd-a2bd-9db171dbfdf6
+  connectorId: 643084d0986ed1caad854e41
+  hasMissingParameters: false
+  hasDocumentation: true
+  hasOperations: true
+  hasData: true
+  hasEvents: true
+  hasGlobalWebhooks: true
+  hasUdm: true
+  baseUri: s3://integration-app-connectors/public/62888f42-6315-4822-b97e-ef53b13a082a
+  connectorVersion: 1.3.1
+  logoUri: https://static.integration.app/connectors/slack/logo.png
+  dataCollectionsCount: 3
+  operationsCount: 246
+  eventsCount: 79
+  authType: oauth2
+integrationKey: slack

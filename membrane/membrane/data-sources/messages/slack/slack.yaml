@@ -1,0 +1,36 @@
+key: messages
+state: READY
+errors: []
+isDeactivated: false
+id: 68814411f2eacefeb83c3b2b
+name: Messages
+integrationId: 6881440ff2eacefeb83c3adf
+customized: false
+universalDataSourceId: 68814411f2eacefeb83c3b20
+collectionKey: messages
+udm: messages
+defaultPath: /data/messages
+integration:
+  key: slack
+  state: READY
+  errors: []
+  isDeactivated: false
+  id: 6881440ff2eacefeb83c3adf
+  name: Slack
+  uuid: dfa66b83-509e-44bd-a2bd-9db171dbfdf6
+  connectorId: 643084d0986ed1caad854e41
+  hasMissingParameters: false
+  hasDocumentation: true
+  hasOperations: true
+  hasData: true
+  hasEvents: true
+  hasGlobalWebhooks: true
+  hasUdm: true
+  baseUri: s3://integration-app-connectors/public/62888f42-6315-4822-b97e-ef53b13a082a
+  connectorVersion: 1.3.1
+  logoUri: https://static.integration.app/connectors/slack/logo.png
+  dataCollectionsCount: 3
+  operationsCount: 246
+  eventsCount: 79
+  authType: oauth2
+integrationKey: slack

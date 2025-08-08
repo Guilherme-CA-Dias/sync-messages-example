@@ -1,0 +1,38 @@
+isCustomized: false
+parentId: 68814411f2eacefeb83c3b64
+integrationId: 6896010055a57ed9b113282f
+key: get-messages
+state: CONFIGURATION_ERROR
+errors:
+  - message: Integration Dependency has error(s)
+    type: dependency_error
+    data:
+      workspaceElementReference:
+        type: integration
+        id: 6896010055a57ed9b113282f
+  - message: Field Mapping Dependency has error(s)
+    type: dependency_error
+    data:
+      workspaceElementReference:
+        type: field-mapping
+        id: 6896564beee371aad3ccb7c5
+isDeactivated: false
+id: 6896564beee371aad3ccb795
+name: Get Messages
+type: list-data-records
+inputSchema:
+  type: object
+  properties:
+    cursor:
+      type: string
+    channelId:
+      type: string
+config:
+  dataSource:
+    udm: messages
+  cursor:
+    $var: $.input.cursor
+  fieldMapping:
+    key: messages
+    includeRawFields: true
+integrationKey: facebook-messenger

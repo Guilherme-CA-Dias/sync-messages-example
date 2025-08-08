@@ -1,0 +1,9 @@
+key: chats
+state: READY
+errors: []
+isDeactivated: false
+id: 688144d433816c4cd08e963e
+name: Chats
+customized: true
+dataSourceKey: chats
+direction: both

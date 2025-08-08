@@ -1,0 +1,79 @@
+key: get-users-ids
+state: READY
+errors: []
+isDeactivated: false
+id: 68920744a1342ecab606aacb
+name: Get users IDs
+universalFlowId: 689206bfe7f1f6d2a4a45b78
+integrationId: 688773c67e68e15f9f5d9f44
+integration:
+  key: gmail
+  state: READY
+  errors: []
+  isDeactivated: false
+  id: 688773c67e68e15f9f5d9f44
+  name: Gmail
+  uuid: 7770b04b-d62c-41f8-bfab-de4d0b452631
+  connectorId: 64300cd1986ed1caad6e23ae
+  hasMissingParameters: false
+  hasDocumentation: true
+  hasOperations: true
+  hasData: true
+  hasEvents: false
+  hasGlobalWebhooks: false
+  hasUdm: true
+  baseUri: s3://integration-app-connectors/public/9c29637a-8512-4f98-817c-5faa1e0defdc
+  connectorVersion: 1.5.2
+  logoUri: https://static.integration.app/connectors/gmail/logo.png
+  appUuid: 86df8323-db7d-4622-a3e9-5b4c0f725177
+  dataCollectionsCount: 3
+  operationsCount: 81
+  eventsCount: 0
+  authType: oauth2
+nodes:
+  api-trigger:
+    type: api-trigger
+    name: API Trigger
+    links:
+      - key: list-users
+  list-users:
+    type: list-data-records
+    name: 'List: Users'
+    config:
+      dataSource:
+        udm: users
+      fieldMapping: {}
+    links:
+      - key: for-each
+  for-each:
+    type: for-each-v2
+    name: For Each
+    config:
+      items:
+        $var: $.input.list-users
+      rootNodeKey: create-data-link
+    links: []
+  data-record-created-trigger:
+    type: data-record-created-trigger
+    name: Data Record Created Trigger
+    config:
+      dataSource:
+        udm: users
+      fieldMapping: {}
+    links:
+      - key: list-users
+  create-data-link:
+    type: create-data-link
+    name: Create Data Link
+    config:
+      dataLinkTable:
+        key: users
+      direction: import
+      externalRecordId:
+        $var: $.input.for-each.item.id
+      appRecordId:
+        $var: $.input.for-each.item.name
+    links: []
+autoCreateInstances: false
+customized: false
+integrationKey: gmail

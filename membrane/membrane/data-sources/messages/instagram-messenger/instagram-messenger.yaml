@@ -1,0 +1,35 @@
+key: messages
+state: READY
+errors: []
+isDeactivated: false
+id: 6896564beee371aad3ccb7bd
+name: Messages
+integrationId: 68960100509b10ce6d3311aa
+customized: false
+universalDataSourceId: 68814411f2eacefeb83c3b20
+udm: messages
+integration:
+  key: instagram-messenger
+  state: READY
+  errors: []
+  isDeactivated: false
+  id: 68960100509b10ce6d3311aa
+  name: Instagram Messenger
+  uuid: 28b9dc78-0f95-40f9-86ec-a8be45cb234f
+  connectorId: 68767608a4a477bab56375fd
+  hasMissingParameters: false
+  hasDocumentation: true
+  hasOperations: false
+  hasData: true
+  hasEvents: true
+  hasGlobalWebhooks: true
+  hasUdm: false
+  baseUri: s3://integration-app-connectors/public/a16f11b4-6aea-48a3-bac5-de130b4af345
+  connectorVersion: 1.0.1
+  logoUri: https://miro.medium.com/v2/resize:fit:256/1*yfOH-Kv0craUMe-PB64B6w.png
+  appUuid: 33b430df-1c5c-4e3a-8f32-42357ee5f9f7
+  dataCollectionsCount: 1
+  operationsCount: 0
+  eventsCount: 1
+  authType: oauth2
+integrationKey: instagram-messenger

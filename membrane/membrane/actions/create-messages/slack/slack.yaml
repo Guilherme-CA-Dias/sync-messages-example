@@ -1,0 +1,58 @@
+isCustomized: false
+parentId: 6888d2459428ff0cd8a73926
+integrationId: 6881440ff2eacefeb83c3adf
+key: create-messages
+state: READY
+errors: []
+isDeactivated: false
+id: 6888d336e551218bc487a753
+name: 'Create: Messages'
+type: create-data-record
+inputSchema:
+  type: object
+  properties:
+    customerId:
+      type: string
+    internalMessageId:
+      type: string
+    data:
+      type: object
+      properties:
+        content:
+          type: string
+        sender:
+          type: string
+        recipient:
+          type: string
+        chatId:
+          type: string
+        chatName:
+          type: string
+        chatType:
+          type: string
+        platformId:
+          type: string
+        platformName:
+          type: string
+        messageType:
+          type: string
+        status:
+          type: string
+        sentTime:
+          type: string
+        createdTime:
+          type: string
+        createdBy:
+          type: string
+        updatedTime:
+          type: string
+        updatedBy:
+          type: string
+config:
+  dataSource:
+    key: messages
+  fieldMapping:
+    key: messages
+    input:
+      $var: $.input.data
+integrationKey: slack

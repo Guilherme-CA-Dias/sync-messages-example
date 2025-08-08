@@ -1,0 +1,109 @@
+key: message-event
+isDeactivated: false
+id: 68814411f2eacefeb83c3b16
+name: Message Event
+globalWebhookUri: >-
+  https://api.integration.app/webhooks/app-events/6303ba6b-ba9d-498f-b314-fb5b07a44721
+schema:
+  type: object
+  properties:
+    type:
+      type: string
+      enum:
+        - created
+        - updated
+        - deleted
+    data:
+      type: object
+      properties:
+        Id:
+          type: string
+          readOnly: true
+        content:
+          type: string
+          description: The actual message text content
+        sender:
+          type: string
+          description: Who sent the message (user ID or name)
+        recipient:
+          type: string
+          description: Who receives the message (user ID or name or phone number)
+        chatId:
+          type: string
+          description: The chat/channel where message was sent
+        chatName:
+          type: string
+          description: Display name of the chat/channel
+        chatType:
+          type: string
+          enum:
+            - direct
+            - group
+            - channel
+          description: Type of chat (direct message, group, or channel)
+        platformId:
+          type: string
+          description: Integration.app platform ID (Slack, Discord, etc.)
+        platformName:
+          type: string
+          description: Display name of the platform (Slack, Discord, etc.)
+        externalMessageId:
+          type: string
+          description: Message ID from the external platform
+        messageType:
+          type: string
+          enum:
+            - text
+            - image
+            - file
+            - reaction
+            - system
+          description: Type of message content
+        status:
+          type: string
+          enum:
+            - pending
+            - sent
+            - delivered
+            - read
+            - failed
+          description: Current status of the message
+        sentTime:
+          type: string
+          format: date-time
+          description: When the message was sent
+        deliveredTime:
+          type: string
+          format: date-time
+          description: When the message was delivered
+        readTime:
+          type: string
+          format: date-time
+          description: When the message was read
+        createdTime:
+          type: string
+          format: date-time
+          readOnly: true
+        createdBy:
+          type: string
+          referenceUdm: users
+          readOnly: true
+        updatedTime:
+          type: string
+          format: date-time
+          readOnly: true
+        updatedBy:
+          type: string
+          referenceUdm: users
+          readOnly: true
+    customerId:
+      type: string
+      description: Customer ID (required, cannot be changed)
+    internalMessageId:
+      type: string
+      description: Our internal message ID for tracking
+    externalMessageId:
+      type: string
+      description: External platform message ID
+userIdFormula:
+  $var: $.customerId

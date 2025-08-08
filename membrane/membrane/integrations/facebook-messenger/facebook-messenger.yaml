@@ -1,0 +1,6 @@
+id: 6896010055a57ed9b113282f
+key: facebook-messenger
+name: Facebook Messenger
+connectorId: 68790e093c393516b6806da5
+baseUri: s3://integration-app-connectors/public/4c563a18-c5e1-4314-8a2e-09da4bbd5553
+connectorVersion: 1.0.0

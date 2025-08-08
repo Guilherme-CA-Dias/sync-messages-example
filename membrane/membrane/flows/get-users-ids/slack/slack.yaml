@@ -1,0 +1,86 @@
+key: get-users-ids
+state: READY
+errors: []
+isDeactivated: false
+id: 68920744a1342ecab606aae5
+name: Get users IDs
+universalFlowId: 689206bfe7f1f6d2a4a45b78
+integrationId: 6881440ff2eacefeb83c3adf
+integration:
+  key: slack
+  state: READY
+  errors: []
+  isDeactivated: false
+  id: 6881440ff2eacefeb83c3adf
+  name: Slack
+  uuid: dfa66b83-509e-44bd-a2bd-9db171dbfdf6
+  connectorId: 643084d0986ed1caad854e41
+  hasMissingParameters: false
+  hasDocumentation: true
+  hasOperations: true
+  hasData: true
+  hasEvents: true
+  hasGlobalWebhooks: true
+  hasUdm: true
+  baseUri: s3://integration-app-connectors/public/62888f42-6315-4822-b97e-ef53b13a082a
+  connectorVersion: 1.3.1
+  logoUri: https://static.integration.app/connectors/slack/logo.png
+  dataCollectionsCount: 3
+  operationsCount: 246
+  eventsCount: 79
+  authType: oauth2
+nodes:
+  api-trigger:
+    type: api-trigger
+    name: API Trigger
+    config:
+      inputSchema:
+        type: object
+        properties:
+          '':
+            type: string
+    links:
+      - key: list-users
+  list-users:
+    type: list-data-records
+    name: 'List: Users'
+    config:
+      dataSource:
+        udm: users
+        collectionKey: users
+        defaultPath: /data/users
+      fieldMapping: {}
+    links:
+      - key: for-each
+  for-each:
+    type: for-each-v2
+    name: For Each
+    config:
+      items:
+        $var: $.input.list-users
+      rootNodeKey: create-data-link
+    links: []
+  data-record-created-trigger:
+    type: data-record-created-trigger
+    name: Data Record Created Trigger
+    config:
+      dataSource:
+        udm: users
+      fieldMapping: {}
+    links:
+      - key: list-users
+  create-data-link:
+    type: create-data-link
+    name: Create Data Link
+    config:
+      dataLinkTable:
+        key: users
+      direction: import
+      externalRecordId:
+        $var: $.input.for-each.item.id
+      appRecordId:
+        $var: $.input.for-each.item.name
+    links: []
+autoCreateInstances: false
+customized: true
+integrationKey: slack

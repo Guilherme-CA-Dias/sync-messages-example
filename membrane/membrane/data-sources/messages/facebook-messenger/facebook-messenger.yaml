@@ -1,0 +1,44 @@
+key: messages
+state: CONFIGURATION_ERROR
+errors:
+  - message: Integration Dependency has error(s)
+    type: dependency_error
+    data:
+      workspaceElementReference:
+        type: integration
+        id: 6896010055a57ed9b113282f
+isDeactivated: false
+id: 6896564beee371aad3ccb7cb
+name: Messages
+integrationId: 6896010055a57ed9b113282f
+customized: false
+universalDataSourceId: 68814411f2eacefeb83c3b20
+udm: messages
+integration:
+  key: facebook-messenger
+  state: CONFIGURATION_ERROR
+  errors:
+    - message: Integration is missing required parameters
+      type: configuration
+  isDeactivated: false
+  id: 6896010055a57ed9b113282f
+  name: Facebook Messenger
+  uuid: 91389725-5e3e-4a68-91ea-5f5cb3da4277
+  connectorId: 68790e093c393516b6806da5
+  hasMissingParameters: true
+  hasDocumentation: true
+  hasOperations: true
+  hasData: true
+  hasEvents: true
+  hasGlobalWebhooks: true
+  hasUdm: false
+  baseUri: s3://integration-app-connectors/public/4c563a18-c5e1-4314-8a2e-09da4bbd5553
+  connectorVersion: 1.0.0
+  logoUri: >-
+    https://static.integration.app/connectors/facebook-messenger/asset-7ee28048-6ac8-4c68-b3d7-5686a014aac5.png
+  appUuid: 67561e97-c0e8-4dcd-9b03-53c93a066d3a
+  dataCollectionsCount: 2
+  operationsCount: 3
+  eventsCount: 1
+  authType: oauth2
+integrationKey: facebook-messenger

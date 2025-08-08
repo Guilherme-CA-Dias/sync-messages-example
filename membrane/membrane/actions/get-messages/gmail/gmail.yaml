@@ -1,11 +1,11 @@
 isCustomized: true
 parentId: 68814411f2eacefeb83c3b64
-integrationId: 6881440ff2eacefeb83c3adf
+integrationId: 688773c67e68e15f9f5d9f44
 key: get-messages
 state: READY
 errors: []
 isDeactivated: false
-id: 68814411f2eacefeb83c3b74
+id: 6896564beee371aad3ccb798
 name: Get Messages
 type: list-data-records
 inputSchema:
@@ -17,13 +17,12 @@ inputSchema:
       type: string
 config:
   dataSource:
-    collectionKey: messages
+    collectionKey: emails
     collectionParameters:
-      conversationId:
-        $var: $.input.channelId
+      userId: ''
   cursor:
     $var: $.input.cursor
   fieldMapping:
     key: messages
     includeRawFields: true
-integrationKey: slack
+integrationKey: gmail

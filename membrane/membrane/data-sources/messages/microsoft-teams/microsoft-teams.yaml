@@ -1,0 +1,45 @@
+key: messages
+state: CONFIGURATION_ERROR
+errors:
+  - message: Integration Dependency has error(s)
+    type: dependency_error
+    data:
+      workspaceElementReference:
+        type: integration
+        id: 6881440ff2eacefeb83c3ae1
+isDeactivated: false
+id: 68814411f2eacefeb83c3b2d
+name: Messages
+integrationId: 6881440ff2eacefeb83c3ae1
+customized: false
+universalDataSourceId: 68814411f2eacefeb83c3b20
+collectionKey: channel-messages
+udm: messages
+defaultPath: /data/channel-messages
+integration:
+  key: microsoft-teams
+  state: CONFIGURATION_ERROR
+  errors:
+    - message: Integration is missing required parameters
+      type: configuration
+  isDeactivated: false
+  id: 6881440ff2eacefeb83c3ae1
+  name: Microsoft Teams
+  uuid: 8c24eb6c-563f-40c7-843a-5281ac6e08b5
+  connectorId: 6466784e60f981f3ce696907
+  hasMissingParameters: true
+  hasDocumentation: true
+  hasOperations: true
+  hasData: true
+  hasEvents: true
+  hasGlobalWebhooks: false
+  hasUdm: true
+  baseUri: s3://integration-app-connectors/public/d2f487ff-7381-409e-9098-2f4d4f51ca51
+  connectorVersion: 2.3.1
+  logoUri: >-
+    https://static.integration.app/connectors/microsoft-teams/logo-af77620a-4317-47b1-a365-419da992ef0b.png
+  dataCollectionsCount: 10
+  operationsCount: 390
+  eventsCount: 4
+  authType: oauth2
+integrationKey: microsoft-teams

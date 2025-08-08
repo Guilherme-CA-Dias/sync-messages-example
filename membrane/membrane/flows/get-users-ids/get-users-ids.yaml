@@ -1,0 +1,50 @@
+key: get-users-ids
+state: READY
+errors: []
+isDeactivated: false
+id: 689206bfe7f1f6d2a4a45b78
+name: Get users IDs
+nodes:
+  api-trigger:
+    type: api-trigger
+    name: API Trigger
+    links:
+      - key: list-users
+  list-users:
+    type: list-data-records
+    name: 'List: Users'
+    config:
+      dataSource:
+        udm: users
+    links:
+      - key: for-each
+  for-each:
+    type: for-each-v2
+    name: For Each
+    config:
+      items:
+        $var: $.input.list-users
+      rootNodeKey: create-data-link
+    links: []
+  data-record-created-trigger:
+    type: data-record-created-trigger
+    name: Data Record Created Trigger
+    config:
+      dataSource:
+        udm: users
+    links:
+      - key: list-users
+  create-data-link:
+    type: create-data-link
+    name: Create Data Link
+    config:
+      dataLinkTable:
+        key: users
+      direction: import
+      externalRecordId:
+        $var: $.input.for-each.item.id
+      appRecordId:
+        $var: $.input.for-each.item.name
+    links: []
+autoCreateInstances: false
+customized: true

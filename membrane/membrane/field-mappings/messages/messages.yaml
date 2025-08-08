@@ -1,0 +1,27 @@
+key: messages
+state: READY
+errors: []
+isDeactivated: false
+id: 68814411f2eacefeb83c3b3d
+name: Messages
+customized: true
+dataSourceKey: messages
+direction: both
+defaultImportValue:
+  id:
+    $var: $.id
+  content:
+    $var: $.text
+  ownerId:
+    $var: $.ownerId
+  chatId:
+    $var: $.channelId
+importValue:
+  id:
+    $var: $.ts
+  content:
+    $var: $.text
+  ownerId:
+    $var: $.user
+  chatId:
+    $var: $.conversationId

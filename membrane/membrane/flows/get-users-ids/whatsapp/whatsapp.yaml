@@ -1,0 +1,79 @@
+key: get-users-ids
+state: READY
+errors: []
+isDeactivated: false
+id: 68920744a1342ecab606aaed
+name: Get users IDs
+universalFlowId: 689206bfe7f1f6d2a4a45b78
+integrationId: 6881441c8bc4980214fdb45b
+integration:
+  key: whatsapp
+  state: READY
+  errors: []
+  isDeactivated: false
+  id: 6881441c8bc4980214fdb45b
+  name: Whatsapp
+  uuid: 4710a9d0-8b3d-402e-bf1a-25b852fe956f
+  connectorId: 6466785c60f981f3ce69691e
+  hasMissingParameters: false
+  hasDocumentation: true
+  hasOperations: true
+  hasData: true
+  hasEvents: true
+  hasGlobalWebhooks: true
+  hasUdm: true
+  baseUri: s3://integration-app-connectors/public/4c7f0f9d-be53-4870-9b0f-718c919d79cf
+  connectorVersion: 1.0.3
+  logoUri: https://static.integration.app/connectors/whatsapp/logohq.png
+  appUuid: f47522b5-96db-474f-bd64-eb63f1de49d3
+  dataCollectionsCount: 1
+  operationsCount: 55
+  eventsCount: 1
+  authType: client-credentials
+nodes:
+  api-trigger:
+    type: api-trigger
+    name: API Trigger
+    links:
+      - key: list-users
+  list-users:
+    type: list-data-records
+    name: 'List: Users'
+    config:
+      dataSource:
+        udm: users
+      fieldMapping: {}
+    links:
+      - key: for-each
+  for-each:
+    type: for-each-v2
+    name: For Each
+    config:
+      items:
+        $var: $.input.list-users
+      rootNodeKey: create-data-link
+    links: []
+  data-record-created-trigger:
+    type: data-record-created-trigger
+    name: Data Record Created Trigger
+    config:
+      dataSource:
+        udm: users
+      fieldMapping: {}
+    links:
+      - key: list-users
+  create-data-link:
+    type: create-data-link
+    name: Create Data Link
+    config:
+      dataLinkTable:
+        key: users
+      direction: import
+      externalRecordId:
+        $var: $.input.for-each.item.id
+      appRecordId:
+        $var: $.input.for-each.item.name
+    links: []
+autoCreateInstances: false
+customized: false
+integrationKey: whatsapp

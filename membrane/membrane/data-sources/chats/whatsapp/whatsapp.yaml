@@ -1,0 +1,36 @@
+key: chats
+state: READY
+errors: []
+isDeactivated: false
+id: 688144d99a588ae9206814b2
+name: Chats
+integrationId: 6881441c8bc4980214fdb45b
+customized: true
+universalDataSourceId: 688144c48b8c04079de42f2c
+collectionKey: messages
+defaultPath: /data/messages
+integration:
+  key: whatsapp
+  state: READY
+  errors: []
+  isDeactivated: false
+  id: 6881441c8bc4980214fdb45b
+  name: Whatsapp
+  uuid: 4710a9d0-8b3d-402e-bf1a-25b852fe956f
+  connectorId: 6466785c60f981f3ce69691e
+  hasMissingParameters: false
+  hasDocumentation: true
+  hasOperations: true
+  hasData: true
+  hasEvents: true
+  hasGlobalWebhooks: true
+  hasUdm: true
+  baseUri: s3://integration-app-connectors/public/4c7f0f9d-be53-4870-9b0f-718c919d79cf
+  connectorVersion: 1.0.3
+  logoUri: https://static.integration.app/connectors/whatsapp/logohq.png
+  appUuid: f47522b5-96db-474f-bd64-eb63f1de49d3
+  dataCollectionsCount: 1
+  operationsCount: 55
+  eventsCount: 1
+  authType: client-credentials
+integrationKey: whatsapp
